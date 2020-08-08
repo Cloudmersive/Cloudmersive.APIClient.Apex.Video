@@ -27,21 +27,19 @@ public class SwagVideoApi {
 
     /**
      * Convert Video to Animated GIF format.
-     * Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video\&#39;s aspect ratio.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video\&#39;s aspect ratio.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
      * @param preserveAspectRatio Optional; If false, the original video\&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to 24 frames per second. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param startTime Optional; Specify the desired starting time of the GIF video in TimeSpan format. (optional)
-     * @param timeSpan Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes. (optional)
+     * @param timeSpan Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds. (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
     public Blob videoConvertToGif(Map<String, Object> params) {
-        client.assertNotNull(params.get('inputFile'), 'inputFile');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
@@ -58,7 +56,6 @@ public class SwagVideoApi {
                 'maxHeight' => (Integer) params.get('maxHeight'),
                 'preserveAspectRatio' => (Boolean) params.get('preserveAspectRatio'),
                 'frameRate' => (Integer) params.get('frameRate'),
-                'extendProcessingTime' => (Boolean) params.get('extendProcessingTime'),
                 'startTime' => (Datetime) params.get('startTime'),
                 'timeSpan' => (Datetime) params.get('timeSpan')
             },
@@ -70,20 +67,18 @@ public class SwagVideoApi {
     }
     /**
      * Convert Video to MOV format.
-     * Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video\&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
     public Blob videoConvertToMov(Map<String, Object> params) {
-        client.assertNotNull(params.get('inputFile'), 'inputFile');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
@@ -100,8 +95,7 @@ public class SwagVideoApi {
                 'maxHeight' => (Integer) params.get('maxHeight'),
                 'preserveAspectRatio' => (Boolean) params.get('preserveAspectRatio'),
                 'frameRate' => (Integer) params.get('frameRate'),
-                'quality' => (Integer) params.get('quality'),
-                'extendProcessingTime' => (Boolean) params.get('extendProcessingTime')
+                'quality' => (Integer) params.get('quality')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
@@ -111,20 +105,18 @@ public class SwagVideoApi {
     }
     /**
      * Convert Video to MP4 format.
-     * Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video\&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
     public Blob videoConvertToMp4(Map<String, Object> params) {
-        client.assertNotNull(params.get('inputFile'), 'inputFile');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
@@ -141,8 +133,7 @@ public class SwagVideoApi {
                 'maxHeight' => (Integer) params.get('maxHeight'),
                 'preserveAspectRatio' => (Boolean) params.get('preserveAspectRatio'),
                 'frameRate' => (Integer) params.get('frameRate'),
-                'quality' => (Integer) params.get('quality'),
-                'extendProcessingTime' => (Boolean) params.get('extendProcessingTime')
+                'quality' => (Integer) params.get('quality')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
@@ -151,21 +142,53 @@ public class SwagVideoApi {
         );
     }
     /**
+     * Convert Video to PNG Still Frames.
+     * Automatically detect video file format and convert it to an array of still frame PNG images. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param framesPerSecond Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     * @return SwagStillFramesResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagStillFramesResult videoConvertToStillFrames(Map<String, Object> params) {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagStillFramesResult) client.invoke(
+            'POST', '/video/convert/to/still-frames', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'fileUrl' => (String) params.get('fileUrl'),
+                'maxWidth' => (Integer) params.get('maxWidth'),
+                'maxHeight' => (Integer) params.get('maxHeight'),
+                'framesPerSecond' => (Object) params.get('framesPerSecond')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagStillFramesResult.class
+        );
+    }
+    /**
      * Convert Video to WEBM format.
-     * Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.
-     * @param inputFile Input file to perform the operation on. (required)
+     * Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param preserveAspectRatio Optional; If false, the original video\&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param extendProcessingTime Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
     public Blob videoConvertToWebm(Map<String, Object> params) {
-        client.assertNotNull(params.get('inputFile'), 'inputFile');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
@@ -182,8 +205,39 @@ public class SwagVideoApi {
                 'maxHeight' => (Integer) params.get('maxHeight'),
                 'preserveAspectRatio' => (Boolean) params.get('preserveAspectRatio'),
                 'frameRate' => (Integer) params.get('frameRate'),
-                'quality' => (Integer) params.get('quality'),
-                'extendProcessingTime' => (Boolean) params.get('extendProcessingTime')
+                'quality' => (Integer) params.get('quality')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Cut a Video to a Shorter Length
+     * Cuts a video to the specified start and end times. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param startTime Optional; Specify the desired starting time of the cut video in TimeSpan format. (optional)
+     * @param timeSpan Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob videoCutVideo(Map<String, Object> params) {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/video/cut', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'fileUrl' => (String) params.get('fileUrl'),
+                'startTime' => (Datetime) params.get('startTime'),
+                'timeSpan' => (Datetime) params.get('timeSpan')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
@@ -194,20 +248,19 @@ public class SwagVideoApi {
     /**
      * Get detailed information about a video or audio file
      * Retrieve detailed information about a video or audio file, including format, dimensions, file size, bit rate, duration and start time. Compatible with many formats, including: AVI, ASF, FLV, GIF, MP4, MPEG/MPG, Matroska/WEBM, MOV, AIFF, ASF, CAF, MP3, MP2, MP1, Ogg, OMG/OMA, and WAV. Uses 1 API call per 10 MB of file size.
-     * @param inputFile Input file to perform the operation on. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
      * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @return Blob
+     * @return SwagMediaInformation
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Blob videoGetInfo(Map<String, Object> params) {
-        client.assertNotNull(params.get('inputFile'), 'inputFile');
+    public SwagMediaInformation videoGetInfo(Map<String, Object> params) {
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
         // cast form params to verify their expected type
         form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
 
-        return (Blob) client.invoke(
+        return (SwagMediaInformation) client.invoke(
             'POST', '/video/convert/get-info', '',
             query, form,
             new Map<String, Object>(),
@@ -217,7 +270,146 @@ public class SwagVideoApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
+            SwagMediaInformation.class
+        );
+    }
+    /**
+     * Resizes a Video Preserving the Original Aspect Ratio.
+     * Resizes a video, while maintaining the original aspect ratio and encoding. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob videoResizeVideo(Map<String, Object> params) {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/video/resize/preserveAspectRatio', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'fileUrl' => (String) params.get('fileUrl'),
+                'maxWidth' => (Integer) params.get('maxWidth'),
+                'maxHeight' => (Integer) params.get('maxHeight'),
+                'frameRate' => (Integer) params.get('frameRate'),
+                'quality' => (Integer) params.get('quality'),
+                'extension' => (String) params.get('extension')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Resizes a Video without Preserving Aspect Ratio.
+     * Resizes a video without maintaining original aspect ratio, allowing fully customizable dimensions. May cause image skewing. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param maxWidth Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param maxHeight Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param frameRate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob videoResizeVideoSimple(Map<String, Object> params) {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/video/resize/target', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'fileUrl' => (String) params.get('fileUrl'),
+                'maxWidth' => (Integer) params.get('maxWidth'),
+                'maxHeight' => (Integer) params.get('maxHeight'),
+                'frameRate' => (Integer) params.get('frameRate'),
+                'quality' => (Integer) params.get('quality'),
+                'extension' => (String) params.get('extension')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Scan a Video for NSFW content.
+     * Automatically detect video file format and scan it for Not Safe For Work (NSFW)/Porn/Racy content. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per frame scanned.
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
+     * @param framesPerSecond Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     * @return SwagNsfwResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagNsfwResult videoScanForNsfw(Map<String, Object> params) {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagNsfwResult) client.invoke(
+            'POST', '/video/scan/nsfw', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'fileUrl' => (String) params.get('fileUrl'),
+                'framesPerSecond' => (Object) params.get('framesPerSecond')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagNsfwResult.class
+        );
+    }
+    /**
+     * Split a Video into Two Shorter Videos
+     * Cuts a video into two videos based on the specified start time. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.
+     * @param splitTime Specify the desired time at which to split the video in TimeSpan format. (required)
+     * @param inputFile Input file to perform the operation on. (optional)
+     * @param fileUrl Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param timeSpan Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     * @return SwagSplitVideoResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagSplitVideoResult videoSplitVideo(Map<String, Object> params) {
+        client.assertNotNull(params.get('splitTime'), 'splitTime');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagSplitVideoResult) client.invoke(
+            'POST', '/video/split', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'fileUrl' => (String) params.get('fileUrl'),
+                'splitTime' => (Datetime) params.get('splitTime'),
+                'timeSpan' => (Datetime) params.get('timeSpan')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagSplitVideoResult.class
         );
     }
 }
