@@ -42,7 +42,7 @@ public class SwagAudioApi {
         form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
 
         return (Blob) client.invoke(
-            'POST', '/audio/convert/to/aac', '',
+            'POST', '/video/convert/to/aac', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>{
@@ -72,7 +72,7 @@ public class SwagAudioApi {
         form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
 
         return (Blob) client.invoke(
-            'POST', '/audio/convert/to/m4a', '',
+            'POST', '/video/convert/to/m4a', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>{
@@ -102,7 +102,7 @@ public class SwagAudioApi {
         form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
 
         return (Blob) client.invoke(
-            'POST', '/audio/convert/to/mp3', '',
+            'POST', '/video/convert/to/mp3', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>{
@@ -132,7 +132,7 @@ public class SwagAudioApi {
         form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
 
         return (Blob) client.invoke(
-            'POST', '/audio/convert/to/wav', '',
+            'POST', '/video/convert/to/wav', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>{

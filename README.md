@@ -67,10 +67,10 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*SwagAudioApi* | [**audioConvertToAac**](docs/SwagAudioApi.md#audioConvertToAac) | **POST** /audio/convert/to/aac | Convert Audio File to AAC format.
-*SwagAudioApi* | [**audioConvertToM4a**](docs/SwagAudioApi.md#audioConvertToM4a) | **POST** /audio/convert/to/m4a | Convert Audio File to M4A format.
-*SwagAudioApi* | [**audioConvertToMp3**](docs/SwagAudioApi.md#audioConvertToMp3) | **POST** /audio/convert/to/mp3 | Convert Audio File to MP3 format.
-*SwagAudioApi* | [**audioConvertToWav**](docs/SwagAudioApi.md#audioConvertToWav) | **POST** /audio/convert/to/wav | Convert Audio File to WAV format.
+*SwagAudioApi* | [**audioConvertToAac**](docs/SwagAudioApi.md#audioConvertToAac) | **POST** /video/convert/to/aac | Convert Audio File to AAC format.
+*SwagAudioApi* | [**audioConvertToM4a**](docs/SwagAudioApi.md#audioConvertToM4a) | **POST** /video/convert/to/m4a | Convert Audio File to M4A format.
+*SwagAudioApi* | [**audioConvertToMp3**](docs/SwagAudioApi.md#audioConvertToMp3) | **POST** /video/convert/to/mp3 | Convert Audio File to MP3 format.
+*SwagAudioApi* | [**audioConvertToWav**](docs/SwagAudioApi.md#audioConvertToWav) | **POST** /video/convert/to/wav | Convert Audio File to WAV format.
 *SwagVideoApi* | [**videoConvertToGif**](docs/SwagVideoApi.md#videoConvertToGif) | **POST** /video/convert/to/gif | Convert Video to Animated GIF format.
 *SwagVideoApi* | [**videoConvertToMov**](docs/SwagVideoApi.md#videoConvertToMov) | **POST** /video/convert/to/mov | Convert Video to MOV format.
 *SwagVideoApi* | [**videoConvertToMp4**](docs/SwagVideoApi.md#videoConvertToMp4) | **POST** /video/convert/to/mp4 | Convert Video to MP4 format.
