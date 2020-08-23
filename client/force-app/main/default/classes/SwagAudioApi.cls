@@ -47,7 +47,7 @@ public class SwagAudioApi {
             new Map<String, Object>(),
             new Map<String, Object>{
                 'fileUrl' => (String) params.get('fileUrl'),
-                'bitRate' => (Object) params.get('bitRate')
+                'bitRate' => (Integer) params.get('bitRate')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
@@ -77,7 +77,7 @@ public class SwagAudioApi {
             new Map<String, Object>(),
             new Map<String, Object>{
                 'fileUrl' => (String) params.get('fileUrl'),
-                'bitRate' => (Object) params.get('bitRate')
+                'bitRate' => (Integer) params.get('bitRate')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
@@ -107,7 +107,7 @@ public class SwagAudioApi {
             new Map<String, Object>(),
             new Map<String, Object>{
                 'fileUrl' => (String) params.get('fileUrl'),
-                'bitRate' => (Object) params.get('bitRate')
+                'bitRate' => (Integer) params.get('bitRate')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
@@ -137,7 +137,7 @@ public class SwagAudioApi {
             new Map<String, Object>(),
             new Map<String, Object>{
                 'fileUrl' => (String) params.get('fileUrl'),
-                'sampleRate' => (Object) params.get('sampleRate')
+                'sampleRate' => (Double) params.get('sampleRate')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },

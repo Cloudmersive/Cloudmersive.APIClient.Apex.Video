@@ -30,7 +30,7 @@ Apikey.setApiKey('YOUR API KEY');
 Map<String, Object> params = new Map<String, Object>{
     'inputFile' => Blob.valueOf('Sample text file\nContents'),
     'fileUrl' => 'fileUrl_example',
-    'bitRate' => Object.getExample()
+    'bitRate' => 56
 };
 
 try {
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. | [optional]
  **fileUrl** | **String**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **bitRate** | [**Object**](.md)| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
+ **bitRate** | **Integer**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
 
 ### Return type
 
@@ -83,7 +83,7 @@ Apikey.setApiKey('YOUR API KEY');
 Map<String, Object> params = new Map<String, Object>{
     'inputFile' => Blob.valueOf('Sample text file\nContents'),
     'fileUrl' => 'fileUrl_example',
-    'bitRate' => Object.getExample()
+    'bitRate' => 56
 };
 
 try {
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. | [optional]
  **fileUrl** | **String**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **bitRate** | [**Object**](.md)| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
+ **bitRate** | **Integer**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
 
 ### Return type
 
@@ -136,7 +136,7 @@ Apikey.setApiKey('YOUR API KEY');
 Map<String, Object> params = new Map<String, Object>{
     'inputFile' => Blob.valueOf('Sample text file\nContents'),
     'fileUrl' => 'fileUrl_example',
-    'bitRate' => Object.getExample()
+    'bitRate' => 56
 };
 
 try {
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. | [optional]
  **fileUrl** | **String**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **bitRate** | [**Object**](.md)| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
+ **bitRate** | **Integer**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
 
 ### Return type
 
@@ -189,7 +189,7 @@ Apikey.setApiKey('YOUR API KEY');
 Map<String, Object> params = new Map<String, Object>{
     'inputFile' => Blob.valueOf('Sample text file\nContents'),
     'fileUrl' => 'fileUrl_example',
-    'sampleRate' => Object.getExample()
+    'sampleRate' => 8.14
 };
 
 try {
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. | [optional]
  **fileUrl** | **String**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **sampleRate** | [**Object**](.md)| Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. | [optional]
+ **sampleRate** | **Double**| Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. | [optional]
 
 ### Return type
 

@@ -49,7 +49,7 @@ SwagClient client = api.getClient();
 Map<String, Object> params = new Map<String, Object>{
     'inputFile' => Blob.valueOf('Sample text file\nContents'),
     'fileUrl' => 'fileUrl_example',
-    'bitRate' => Object.getExample()
+    'bitRate' => 56
 };
 
 try {

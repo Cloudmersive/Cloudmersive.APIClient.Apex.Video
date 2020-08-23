@@ -135,7 +135,7 @@ private class SwagVideoApiTest {
             'fileUrl' => 'fileUrl_example',
             'maxWidth' => 56,
             'maxHeight' => 56,
-            'framesPerSecond' => Object.getExample()
+            'framesPerSecond' => 8.14
         };
 
         SwagClient client;
@@ -357,7 +357,7 @@ private class SwagVideoApiTest {
         Map<String, Object> params = new Map<String, Object>{
             'inputFile' => Blob.valueOf('Sample text file\nContents'),
             'fileUrl' => 'fileUrl_example',
-            'framesPerSecond' => Object.getExample()
+            'framesPerSecond' => 8.14
         };
 
         SwagClient client;

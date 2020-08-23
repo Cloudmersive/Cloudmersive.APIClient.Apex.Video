@@ -15,7 +15,7 @@ private class SwagAudioApiTest {
         Map<String, Object> params = new Map<String, Object>{
             'inputFile' => Blob.valueOf('Sample text file\nContents'),
             'fileUrl' => 'fileUrl_example',
-            'bitRate' => Object.getExample()
+            'bitRate' => 56
         };
 
         SwagClient client;
@@ -50,7 +50,7 @@ private class SwagAudioApiTest {
         Map<String, Object> params = new Map<String, Object>{
             'inputFile' => Blob.valueOf('Sample text file\nContents'),
             'fileUrl' => 'fileUrl_example',
-            'bitRate' => Object.getExample()
+            'bitRate' => 56
         };
 
         SwagClient client;
@@ -85,7 +85,7 @@ private class SwagAudioApiTest {
         Map<String, Object> params = new Map<String, Object>{
             'inputFile' => Blob.valueOf('Sample text file\nContents'),
             'fileUrl' => 'fileUrl_example',
-            'bitRate' => Object.getExample()
+            'bitRate' => 56
         };
 
         SwagClient client;
@@ -120,7 +120,7 @@ private class SwagAudioApiTest {
         Map<String, Object> params = new Map<String, Object>{
             'inputFile' => Blob.valueOf('Sample text file\nContents'),
             'fileUrl' => 'fileUrl_example',
-            'sampleRate' => Object.getExample()
+            'sampleRate' => 8.14
         };
 
         SwagClient client;

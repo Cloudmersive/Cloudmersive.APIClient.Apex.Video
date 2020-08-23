@@ -167,7 +167,7 @@ public class SwagVideoApi {
                 'fileUrl' => (String) params.get('fileUrl'),
                 'maxWidth' => (Integer) params.get('maxWidth'),
                 'maxHeight' => (Integer) params.get('maxHeight'),
-                'framesPerSecond' => (Object) params.get('framesPerSecond')
+                'framesPerSecond' => (Double) params.get('framesPerSecond')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
@@ -371,7 +371,7 @@ public class SwagVideoApi {
             new Map<String, Object>(),
             new Map<String, Object>{
                 'fileUrl' => (String) params.get('fileUrl'),
-                'framesPerSecond' => (Object) params.get('framesPerSecond')
+                'framesPerSecond' => (Double) params.get('framesPerSecond')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },

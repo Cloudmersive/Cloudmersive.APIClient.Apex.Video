@@ -224,7 +224,7 @@ Map<String, Object> params = new Map<String, Object>{
     'fileUrl' => 'fileUrl_example',
     'maxWidth' => 56,
     'maxHeight' => 56,
-    'framesPerSecond' => Object.getExample()
+    'framesPerSecond' => 8.14
 };
 
 try {
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
  **fileUrl** | **String**| Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. | [optional]
  **maxWidth** | **Integer**| Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. | [optional]
  **maxHeight** | **Integer**| Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. | [optional]
- **framesPerSecond** | [**Object**](.md)| Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. | [optional]
+ **framesPerSecond** | **Double**| Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. | [optional]
 
 ### Return type
 
@@ -568,7 +568,7 @@ Apikey.setApiKey('YOUR API KEY');
 Map<String, Object> params = new Map<String, Object>{
     'inputFile' => Blob.valueOf('Sample text file\nContents'),
     'fileUrl' => 'fileUrl_example',
-    'framesPerSecond' => Object.getExample()
+    'framesPerSecond' => 8.14
 };
 
 try {
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. | [optional]
  **fileUrl** | **String**| Optional; URL of a video file being scanned. Use this option for files larger than 2GB. | [optional]
- **framesPerSecond** | [**Object**](.md)| Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. | [optional]
+ **framesPerSecond** | **Double**| Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. | [optional]
 
 ### Return type
 
